@@ -42,14 +42,12 @@
 		height: 100vh;
 	}
 	.sidemenu {
+		display: relative;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: start;
 		align-items: center;
-		margin: 2rem;
-		padding-left: 2rem;
-		padding-right: 2rem;
 		border: 1px solid #ccc;
 	}
 	section {
