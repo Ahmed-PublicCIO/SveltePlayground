@@ -1,7 +1,8 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import welcome from '$lib/images/svelte-welcome.webp';
+	import Counter from './Counter.svelte';
+	import Sidemenu from './sidemenu.svelte';
 </script>
 
 <svelte:head>
@@ -9,26 +10,48 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
+<div id="layout-container">
+	<div class="sidemenu">
+		<Sidemenu />
+	</div>
+	<section>
+		<h1>
+			<span class="welcome">
+				<picture>
+					<source srcset={welcome} type="image/webp" />
+					<img src={welcome_fallback} alt="Welcome" />
+				</picture>
+			</span>
 
-		to your new<br />SvelteKit app
-	</h1>
+			to your new<br />SvelteKit app
+		</h1>
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
+		<h2>
+			try editing <strong>src/routes/+page.svelte</strong>
+		</h2>
 
-	<Counter />
-</section>
+		<Counter />
+	</section>
+</div>
 
 <style>
+	#layout-container {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		grid-template-rows: 1fr;
+		height: 100vh;
+	}
+	.sidemenu {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		align-items: center;
+		margin: 2rem;
+		padding-left: 2rem;
+		padding-right: 2rem;
+		border: 1px solid #ccc;
+	}
 	section {
 		display: flex;
 		flex-direction: column;
